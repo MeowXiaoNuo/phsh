@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切換背景色</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* 使按鈕定位相對於body */
+        }
+
+        .toggle-button {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* 移動按鈕到右上角 */
+            width: 32px;
+            height: 64px; /* 設置按鈕大小為長32寬64 */
+            background-color: #ccc;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .toggle-button.active {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-button" id="toggleButton"></div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        let isDarkMode = false;
+
+        toggleButton.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            document.body.style.backgroundColor = isDarkMode ? '#000' : '#fff';
+            toggleButton.classList.toggle('active', isDarkMode);
+        });
+    </script>
+</body>
+</html>
